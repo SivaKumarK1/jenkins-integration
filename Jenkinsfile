@@ -20,5 +20,9 @@ pipeline {
                 '''
             }    
         }
+        stage('Result'){
+            agent any
+            echo "Succesful Build of Pipeline !!!"
+        }
     }
 }
