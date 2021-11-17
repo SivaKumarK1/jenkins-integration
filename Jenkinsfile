@@ -11,7 +11,7 @@ pipeline {
                 }
             }
         }
-        stage 'run'){
+        stage('run'){
             agent any
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
                 script{
