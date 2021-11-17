@@ -1,5 +1,3 @@
-import jenkins.model.*
-jenkins = Jenkins.instance
 def name = null
 pipeline {
     agent none 
@@ -17,9 +15,8 @@ pipeline {
             agent any
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
-                script{
                     sh script.sh $name
-                }
+
             }    
         }
     }
