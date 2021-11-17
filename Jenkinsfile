@@ -16,11 +16,13 @@ pipeline {
         stage('run'){
             agent any
             steps {
-                git 'https://github.com/AnilComakeit/testinggitjenikins.git'
-                sh '''
-                     sh some.sh 
-                ''' +
-                script { $name }
+                git 'https://github.com/SivaKumarK1/jenkins-integration.git'
+                // sh '''
+                //      sh some.sh 
+                // ''' +
+                script { 
+                    sh script.sh $name 
+                }
             }    
         }
         stage('Result'){
