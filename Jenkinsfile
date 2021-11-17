@@ -18,9 +18,9 @@ pipeline {
                 script{
                     echo "Hello, $name"
                 }
-                // sh '''
-                //      sh script.sh $name
-                // '''
+                sh '''
+                     sh script.sh
+                ''' + $name
             }    
         }
         stage('Result'){
