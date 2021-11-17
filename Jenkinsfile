@@ -15,9 +15,12 @@ pipeline {
             agent any
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
-                sh '''
-                     sh script.sh $name
-                '''
+                script{
+                    echo "Hello, $name"
+                }
+                // sh '''
+                //      sh script.sh $name
+                // '''
             }    
         }
         stage('Result'){
