@@ -15,9 +15,9 @@ pipeline {
             agent any
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
-                script{
+                sh '''
                      sh script.sh $name
-                }
+                '''
             }    
         }
     }
