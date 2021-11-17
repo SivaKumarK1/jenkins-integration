@@ -1,11 +1,21 @@
+def name = null
 pipeline {
-    agent any 
+    agent none 
     stages {
         stage('input'){
             steps{
+                script{
+                    name = input(
+                        message: 'enter your name', ok: 'Submit', parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+                    )
+                }
+            }
+        }
+        stage 'run'){
+            agent any
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
-                input(message:'Enter Name', ok: 'Submit')
-                sh script.sh
+                script{
+                sh script.sh $name
             }
         }
     }
