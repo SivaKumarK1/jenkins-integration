@@ -1,3 +1,5 @@
+import jenkins.model.*
+jenkins = Jenkins.instance
 def name = null
 pipeline {
     agent none 
