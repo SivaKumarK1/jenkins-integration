@@ -6,7 +6,9 @@ pipeline {
             steps{
                 script{
                     name = input(
-                        message: 'enter your name', ok: 'Submit', parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+                        message: 'enter your name', 
+                        ok: 'Submit', 
+                        parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
                     )
                 }
             }
@@ -17,7 +19,8 @@ pipeline {
                 git 'https://github.com/AnilComakeit/testinggitjenikins.git'
                 sh '''
                      sh some.sh 
-                ''' + $name
+                ''' +
+                script { $name }
             }    
         }
         stage('Result'){
