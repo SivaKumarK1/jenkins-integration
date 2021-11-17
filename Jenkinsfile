@@ -13,10 +13,12 @@ pipeline {
         }
         stage('run'){
             agent any
+            steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
                 script{
-                sh script.sh $name
-            }
+                    sh script.sh $name
+                }
+            }    
         }
     }
 }
