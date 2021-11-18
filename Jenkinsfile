@@ -3,7 +3,9 @@ pipeline {
     agent none 
     stages {
         stage('input'){
+            agent any
             steps{
+                echo "taking input"
                 // script{
                 //     name = input(
                 //         message: 'enter your name', 
