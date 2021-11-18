@@ -1,18 +1,18 @@
-// def name = null
+def name = null
 pipeline {
     agent none 
     stages {
-        // stage('input'){
-        //     steps{
-        //         script{
-        //             name = input(
-        //                 message: 'enter your name', 
-        //                 ok: 'Submit', 
-        //                 parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
-        //             )
-        //         }
-        //     }
-        // }
+        stage('input'){
+            steps{
+                script{
+                    name = input(
+                        message: 'enter your name', 
+                        ok: 'Submit', 
+                        parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+                    )
+                }
+            }
+        }
         stage('run'){
             agent any
             steps {
