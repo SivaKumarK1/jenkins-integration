@@ -1,28 +1,25 @@
-def name = null
+// def name = null
 pipeline {
     agent none 
     stages {
-        stage('input'){
-            steps{
-                script{
-                    name = input(
-                        message: 'enter your name', 
-                        ok: 'Submit', 
-                        parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
-                    )
-                }
-            }
-        }
+        // stage('input'){
+        //     steps{
+        //         script{
+        //             name = input(
+        //                 message: 'enter your name', 
+        //                 ok: 'Submit', 
+        //                 parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+        //             )
+        //         }
+        //     }
+        // }
         stage('run'){
             agent any
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
-                // sh '''
-                //      sh some.sh 
-                // ''' +
-                script { 
-                    sh script.sh $name 
-                }
+                sh '''
+                     sh some.sh $name
+                ''' 
             }    
         }
         stage('Result'){
