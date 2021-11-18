@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('input'){
             steps{
-                script{
-                    name = input(
-                        message: 'enter your name', 
-                        ok: 'Submit', 
-                        parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
-                    )
-                }
+                // script{
+                //     name = input(
+                //         message: 'enter your name', 
+                //         ok: 'Submit', 
+                //         parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+                //     )
+                // }
             }
         }
         stage('run'){
@@ -18,8 +18,14 @@ pipeline {
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
                 sh '''
-                     sh script.sh $name
-                ''' 
+                     sh script.sh 
+                ''' + script{
+                    name = input(
+                        message: 'enter your name', 
+                        ok: 'Submit', 
+                        parameters: [string(defaultValue:'Siva' , name:'NAME',trim:true)]               
+                    )
+                }
             }    
         }
         stage('Result'){
