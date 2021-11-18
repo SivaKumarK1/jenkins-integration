@@ -18,7 +18,7 @@ pipeline {
             steps {
                 git 'https://github.com/SivaKumarK1/jenkins-integration.git'
                 sh '''
-                     sh some.sh $name
+                     sh script.sh $name
                 ''' 
             }    
         }
